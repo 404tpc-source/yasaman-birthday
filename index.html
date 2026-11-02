@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>سورپرایز تولد یاسمن</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:Tahoma,Arial,sans-serif;background:linear-gradient(145deg,#fff0f6,#f2eaff 55%,#e7f7ff);color:#63345f;overflow-x:hidden}
+main{max-width:760px;margin:auto;padding:34px 18px 60px;text-align:center;position:relative;z-index:1}
+.card{background:#ffffffdc;border:2px solid #fff;border-radius:28px;padding:28px 20px;box-shadow:0 16px 45px #9b6aa522}
+h1{font-size:clamp(2rem,7vw,3.4rem);margin:8px 0;color:#d94b91}
+.sub{font-size:1.15rem;line-height:2}
+button{border:0;border-radius:999px;padding:15px 28px;background:linear-gradient(90deg,#ff78ae,#a77bff);color:white;font-size:1.1rem;font-weight:bold;cursor:pointer;box-shadow:0 8px 20px #c77bb855}
+#surprise{display:none;animation:pop .8s ease}
+.message{font-size:clamp(1.5rem,5vw,2.3rem);line-height:1.9;color:#b83e86;font-weight:bold}
+.illustration{margin:20px auto;width:min(100%,430px);height:270px;border-radius:24px;background:linear-gradient(#dff5ff,#fff0f7);display:grid;place-items:center;border:3px dashed #f5a6cd}
+.cake{font-size:100px;filter:drop-shadow(0 8px 8px #d88)}
+.hint{font-size:.9rem;color:#8c6b88;margin-top:18px}
+.balloon{position:fixed;bottom:-100px;font-size:42px;animation:rise 12s linear infinite;opacity:.8;z-index:0}
+.b1{left:8%;animation-delay:0s}.b2{left:78%;animation-delay:3s}.b3{left:48%;animation-delay:6s}
+@keyframes rise{to{transform:translateY(-120vh) rotate(18deg)}}
+@keyframes pop{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:scale(1)}}
+.confetti{font-size:30px;letter-spacing:8px;margin:12px}
+</style></head>
+<body>
+<div class="balloon b1">🎈</div><div class="balloon b2">🎈</div><div class="balloon b3">🎈</div>
+<main><section class="card">
+<div class="confetti">✨ 🎀 ✨</div>
+<h1>یه سورپرایز کوچولو!</h1>
+<p class="sub">یاسمن جان، آماده‌ای؟<br>برای دیدن سورپرایزت روی دکمه بزن 💗</p>
+<button id="open">باز کردن سورپرایز 🎁</button>
+<div id="surprise">
+<div class="illustration" aria-label="تصویر نمادین جشن تولد"><div class="cake">🎂</div></div>
+<div class="confetti">🎉 🎊 🥳 🎊 🎉</div>
+<div class="message">تولدت مبارک یاسمن جان!<br>شش سالگیت پر از شادی و آرزوهای قشنگ 🌸</div>
+<p class="sub">امیدوارم همیشه بخندی و دنیات پر از رنگین‌کمان باشه 💕</p>
+<button id="music">پخش آهنگ تولد 🎵</button>
+<p class="hint">اگر آهنگ پخش نشد، یک بار دیگر دکمه را بزن.</p>
+</div></section>
+<p class="hint">این صفحه را می‌توانی با لینک برای یاسمن بفرستی.</p></main>
+<audio id="song" src="yasaman_birthday_instrumental.wav" preload="auto"></audio>
+<script>
+const openBtn=document.getElementById('open'), surprise=document.getElementById('surprise'), song=document.getElementById('song'), musicBtn=document.getElementById('music');
+openBtn.addEventListener('click',()=>{surprise.style.display='block';openBtn.style.display='none';});
+musicBtn.addEventListener('click',async()=>{try{if(song.paused){await song.play();musicBtn.textContent='توقف آهنگ ⏸️';}else{song.pause();musicBtn.textContent='پخش دوباره آهنگ 🎵';}}catch(e){musicBtn.textContent='برای پخش دوباره لمس کن 🎵';}});
+song.addEventListener('ended',()=>musicBtn.textContent='پخش دوباره آهنگ 🎵');
+</script></body></html>
